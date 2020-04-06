@@ -18,3 +18,7 @@ Files:
   FileReader : Read hdfs file, convert into DataFrame.
   
   ApacheFlume : Use the Kafka source to stream data in Kafka topics to Hadoop.
+  
+  Visualisation : notebook in json produced by apache zeppelin where we visualized drone data.
+  
+  Processing : python notebook where we processed the initial csv to keep relevant data to simulate a drone.
