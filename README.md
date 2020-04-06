@@ -17,4 +17,4 @@ Files:
   
   FileReader : Read hdfs file, convert into DataFrame.
   
-  flume.conf : 
+  ApacheFlume : Use the Kafka source to stream data in Kafka topics to Hadoop 
