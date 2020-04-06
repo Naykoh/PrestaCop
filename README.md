@@ -7,3 +7,14 @@ A camera with pattern recognition software identifies license plates and charact
 
 
 Files:
+
+  DroneSimulator : Generate JSON File to simulate drone data, and Producer reading thosz JSON file to Kafka into drone    
+                 topic
+  
+  AlertHandler : Consumer that takes the alert topic and send a mail with location of the violation.
+  
+  Consumer : Spark streaming consuming drone topic and Producer that distinguish alert. Creating two others topics, one with only alert for the AlertHandler and one other topic to store into HDFS.
+  
+  FileReader : Read hdfs file, convert into DataFrame.
+  
+  flume.conf : 
