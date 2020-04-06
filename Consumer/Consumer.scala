@@ -20,7 +20,7 @@ object Consumer extends App {
     .config(sparkConf)
     .getOrCreate()
 
-  val TOPIC="drone1"
+  val TOPIC="Drone_info"
 
   val  props = new Properties()
   props.put("bootstrap.servers", "localhost:9092")
@@ -48,19 +48,18 @@ object Consumer extends App {
 
   while(true){
     val records=consumer.poll(500)
-
+    println(records)
 
     records.asScala.foreach{r =>
       val df = jsonStrToMap(r.value())
-      println(df)
       if(df("Alert") == 1){
-        val record = new ProducerRecord[String, String]("alert1", "key", r.value())
-        val record1 = new ProducerRecord[String, String]("storage4", "key", r.value())
+        val record = new ProducerRecord[String, String]("alert_info", "key", r.value())
+        val record1 = new ProducerRecord[String, String]("storage_info", "key", r.value())
         producer.send(record)
         producer.send(record1)
         println(df("Alert"))
       }else{
-        val record = new ProducerRecord[String, String]("storage4", "key", r.value())
+        val record = new ProducerRecord[String, String]("storage_info", "key", r.value())
         producer.send(record)
         println("Pas d'alerte")
       }
